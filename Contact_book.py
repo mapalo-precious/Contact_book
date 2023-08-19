@@ -1,29 +1,30 @@
-first_name = {'number':'name',
-           '1':'name1',
-            '2':'name 2',
-              '3':'name3',
-                '4':'name4',
-                 '5':'name 5'}
+contacts= {'name':["Number",'Email',"Address"]}
+welcome='Welcome to my contact book you can create and delete contacts'
+print(welcome)
 
-address = {'number':'address',
-           '1':'address1',
-            '2':'address 2',
-              '3':'address3',
-                'r4':'address4',
-                 '5':'address4' }
+def main():
+  contact=input('Would you like to:\n~Create a new contact(Type "N")\n~Delete an existing contact(Type "D")\nHere is your contact book so far\n{}\nYour answer:   '.format(contacts) )
+  if contact.lower()=='n':
+    name=input("What is the name of your contact")
+    number=input('What is the number of your new contact')
+    address=input('What is the address of your new contact')
+    email=input('What is the email address for your new contact (Use this format: firstname.lastname@domain.com )')
+    contacts[name] =[number,email,address]
+    print("This is your updated contact book\n{}".format(contacts))
+  elif contact.lower()=='d':
+    delete=input("What would you like to delete?{}\nyour answer:     ".format({k.lower(): v for k, v in contacts.items()}.keys()))
+    delete.lower()
+    del contacts[delete]
+    print("This is your updated contact book\n{}".format(contacts))
+  else:
+    print('Error:Invalid process')
 
-middle_name = {'number':'name',
-           'number1':'name1',
-            'number2':'name 2',
-              'number3':'name3',
-                'number4':'name4',
-                 'number5':'name 5'}
-
-surname = {'number':'name',
-           'number1':'name1',
-            'number2':'name 2',
-              'number3':'name3',
-                'number4':'name4',
-                 'number5':'name 5'}
-
-welcome=
+while True:
+  ask=input('Would you like to continue? (Press "a" to continue or "e" to exit)\nYour answer:   ')
+  if ask.lower()=='a':
+    print(main())
+  elif ask.lower()=='e':
+    break
+  else:
+    print('Error: Invalid answer')
+    break
